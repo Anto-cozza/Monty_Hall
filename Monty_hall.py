@@ -61,18 +61,15 @@ if(st.button("New game")):
 
 st.write(st.session_state.exps)
 
+estimate_prob = st.session_state.exps.count(True)/len(st.session_state.exps)
+st.write(estimate_prob)
 
+labels = 'win', 'loose'
+sizes = [st.session_state.exps.count(True), st.session_state.exps.count(False)]
+    
+fig1, ax1 = plt.subplots()
+ax1.pie(sizes, labels = labels, autopct = '%1.1f%%', shadow = True, startangle = 90)
+ax1.axis('equal')  
+st.pyplot(fig1)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+st.write("number of experiments so far:", len(st.session_state.exps))
